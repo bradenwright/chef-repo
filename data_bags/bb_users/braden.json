@@ -1,0 +1,39 @@
+{
+  "id": "braden",
+  "email": {
+    "encrypted_data": "WkkrXoaGZNqdR8NYAgiAvVc8nPTa19kFks0IIaWSg7xaqJdOkwxxTUFOCGi3\nLgxl\n",
+    "iv": "a5D3pm//pOlsO9stWAYbIw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "first_name": {
+    "encrypted_data": "SjMpGW4qtFG7GN8KDK3Ci7GQ5EAqsVNz2HRZaP9sqZA=\n",
+    "iv": "SNbGXF5IhITveX0PVr1baA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "home_path": {
+    "encrypted_data": "CJfIUMc09FWIgjn/jAT5RCqLEeeyRUSBIiNyR9CON+4=\n",
+    "iv": "caXlkQ7TZ/+o+IopyFEJ9g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "last_name": {
+    "encrypted_data": "zgnzR5s6uh1yKbtwYH3pGvOro2hKTxPmi9MBGVe+XOo=\n",
+    "iv": "AYx6iQDtQy/CtOpKuVFrEg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "password": {
+    "encrypted_data": "X5BEz2j1+B3g3ttLQp6ES9W3gQaZWP484DW8S9MnIZc=\n",
+    "iv": "GyOpYGCuHNrDy44Vzdngdw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "username": {
+    "encrypted_data": "qgcEAt/2hNfvw3lcHBGQd/l7xyMqquN516zRD8wsF0s=\n",
+    "iv": "6m1gpVu2chp5pbInUVRDQA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

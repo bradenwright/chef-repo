@@ -1,0 +1,50 @@
+---
+driver:
+<% cookbook_name = `cat metadata.rb  | grep ^name | awk '{ print $2 }' | xargs`.chomp %>
+  name: lxd_cli
+  image_name: <%= ENV['LXD_IMAGE_NAME'] || 'bb_base-ubuntu-14.04-static-ip' %>
+  config:
+    limits.memory: 2GB
+    limits.cpu: 1
+  ip_gateway: 10.100.0.1
+  domain_name: 'dev.bb.com'
+<% if ENV['LXD_PUBLISH'] && ENV['LXD_PUBLISH'] == 'true' %>
+  publish_image_name: <%= ENV['LXD_PUBLISH_NAME'] || "#{cookbook_name}-ubuntu-14.04-static-ip" %>
+  publish_image_before_destroy: true
+  publish_image_overwrite: true
+<% end %>
+<% if ENV['LXD_USE_PUBLISH'] && ENV['LXD_USE_PUBLISH'] == 'true' %>
+  publish_image_name: <%= ENV['LXD_PUBLISH_NAME'] || "#{cookbook_name}-ubuntu-14.04-static-ip" %>
+  use_publish_image: true
+<% end %>
+<% if ENV['LXD_PROXY'] && ENV['LXD_PROXY'] == 'true' %>
+  lxd_proxy_install: true
+<% end %>
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: true
+  clients_path: '~/chef-repo/clients'
+  data_bags_path: '~/chef-repo/test_data_bags'
+  environments_path: '~/chef-repo/environments'
+  nodes_path: '~/chef-repo/nodes'
+  roles_path: '~/chef-repo/roles'
+#  encrypted_data_bag_secret_key_path: '~/.chef/encrypted_data_bag_secret'
+  client_rb:
+    environment: dev
+<% if ENV['LXD_PROXY'] && ENV['LXD_PROXY'] == 'true' %>
+  http_proxy: http://10.100.0.5:8123
+  https_proxy: https://10.100.0.5:8123
+  chef_omnibus_url: http://www.chef.io/chef/install.sh
+<% end %>
+
+platforms:
+- name: ubuntu-14.04
+
+transport:
+  name: sftp
+  ssh_key: ~/.ssh/id_rsa
+
+verifier:
+  name: inspec
+

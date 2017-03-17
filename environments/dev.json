@@ -1,0 +1,9 @@
+{
+  "name": "dev",
+  "id": "dev",
+  "description": "Dev environment for local work",
+  "json_class": "Chef::Environment",
+  "chef_type": "environment",
+  "default_attributes": {}
+}
+
